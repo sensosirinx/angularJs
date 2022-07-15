@@ -1,0 +1,25 @@
+<div class="block" ng-if="model.item.title">
+    <div class="block__item block__item--border">
+        <strong class="label">Selected Item: </strong>
+        <span>{{model.item.title}}</span>
+    </div>
+    <div class="block__item block__item--nopadding block__item--border block__item--flex-col">
+        <div class="block__item">
+            <strong class="label">Tags:</strong>
+        </div>
+        <div class="block__item block__item--align-center"
+             ng-class="{'block__item--border':!$last}"
+             ng-repeat="tag in model.item.tags"
+        >
+            {{tag}}
+            <button class="delete-tag" ng-click="deleteTag(tag)">x</button>
+        </div>
+    </div>
+    <div class="block__item block__item--padding block__item--align-center">
+        <strong class="label">Add tag:</strong>
+        <form ng-submit="addTag()">
+            <input type="text" ng-model="model.newTag" />
+            <button type="submit">Add</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="block">
+    <div class="block__item">
+        <h3>Summary</h3>
+    </div>
+    <div class="block__item">
+        <strong class="label">Last: </strong>
+        <span ng-repeat="item in model.items | orderBy: '-date' | limitTo: 1">{{item.title}}</span>
+    </div>
+    <div class="block__item block__item--border">
+        <strong class="label">Tags:</strong>
+        <span class="tag-list" ng-repeat="tag in model.tags">{{tag}}<span ng-if="!$last">, </span></span>
+    </div>
+</div>
